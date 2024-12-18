@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RBPv1._1.Model.Groups>
+
+
+<h2>Список групп</h2>
+
+<tr>
+    <th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Create">
+            <button type="button" class="btn btn-primary">Добавить группу</button>
+        </a></th><th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Delete">
+            <button type="button" class="btn btn-danger">Удалить группу</button>
+        </a></th><th style="text-align: center; vertical-align: middle;">
+        <form method="get" asp-action="Index" style="display: inline;">
+            <input type="text" name="searchQuery" value="@ViewData["SearchQuery"]" placeholder="Введите название группы" />
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </th>
+</tr>
+<table class="table">
+    <tr>
+        <th>
+            <a>
+                Id
+            </a>
+        </th>
+        <th>
+            <a>
+                Название
+            </a>
+        </th>
+        <th>
+            <a>
+                Специальность
+            </a>
+        </th>
+        <th>
+            Факультет
+        </th>
+        <th>
+            <a>
+                Количество студентов
+            </a>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.GroupId</td>
+            <td>@item.GroupName</td>
+            <td>@item.Specialty</td>
+            <td>@item.Department</td>
+            <td>@item.StudentCount</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Groups" asp-route-id="@item.GroupId">
+                    <button type="submit" class="btn btn-outline-primary">Изменить</button>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,38 @@
+﻿@model RBPv1._1.Model.Workload
+
+<h2>Добавление нагрузки</h2>
+<form asp-action="Create" asp-controller="Workload">
+
+    <p>
+        <label asp-for="GroupID">Группа</label><br />
+        <select asp-for="GroupID" asp-items="@(new SelectList(ViewBag.Groups, "GroupId", "GroupName"))" class="form-control">
+            <option value="">Выберите группу</option>
+        </select>
+    </p>
+    <p>
+        <label asp-for="TeacherID">Преподаватель</label><br />
+        <select asp-for="TeacherID" asp-items="@(new SelectList(ViewBag.Teachers, "TeacherID", "LastName"))" class="form-control">
+            <option value="">Выберите преподавателя</option>
+        </select>
+    </p>
+    <p>
+        <label asp-for="Hours">Часы</label><br />
+        <input type="number" asp-for="Hours" class="form-control" min="1" />
+    </p>
+    <p>
+        <label asp-for="Subject">Предмет</label><br />
+        <input type="text" asp-for="Subject" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="ClassType">Тип пары</label><br />
+        <input type="text" asp-for="ClassType" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="Payment">Оплата</label><br />
+        <input type="number" asp-for="Payment" class="form-control" min="0" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" class="btn btn-primary" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>

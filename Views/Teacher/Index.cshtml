@@ -1,0 +1,64 @@
+﻿@model IEnumerable<RBPv1._1.Model.Teachers>
+
+
+<h2>Список преподавателей</h2>
+
+<tr>
+    <th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Create">
+            <button type="button" class="btn btn-primary">Добавить преподавателя</button>
+        </a>
+    </th>
+    <th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Delete">
+            <button type="button" class="btn btn-danger">Удалить преподавателя</button>
+        </a>
+    </th>
+    <th style="text-align: center; vertical-align: middle;">
+        <form method="get" asp-action="Index" style="display: inline;">
+            <input type="text" name="searchQuery" value="@ViewData["SearchQuery"]" placeholder="Введите фамилию" />
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </th>
+</tr>
+<table class="table">
+    <tr>
+        <th>
+            <a>
+                Id
+            </a>
+        </th>
+        <th>
+            <a>
+                ФИО
+            </a>
+        </th>
+        <th>
+            <a>
+                Телефон
+            </a>
+        </th>
+        <th>
+            Опыт
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TeacherID</td>
+            <td>@item.LastName @item.FirstName.Substring(0,1).ToUpper(). @item.MiddleName.Substring(0,1).ToUpper().</td>
+            <td>@item.Phone</td>
+            <td>@item.Experience</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Teacher" asp-route-id="@item.TeacherID">
+                    <button type="submit" class="btn btn-outline-primary">Изменить</button>
+                </a>
+            </td>
+            <td>
+                <a asp-action="Documents" asp-controller="Teacher" asp-route-teacherId="@item.TeacherID">
+                    <button type="button" class="btn btn-outline-info">Документы</button>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

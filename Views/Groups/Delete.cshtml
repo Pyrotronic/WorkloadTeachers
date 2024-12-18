@@ -1,0 +1,17 @@
+﻿@model IEnumerable<RBPv1._1.Model.Groups>
+<h2>Удаление группы</h2>
+<form asp-action="Delete" asp-controller="Groups" method="post">
+    <select name="GroupId">
+        @foreach (var item in Model)
+        {
+            <option value="@item.GroupId">@item.GroupName</option>
+        }
+    </select>
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>
+
+
+

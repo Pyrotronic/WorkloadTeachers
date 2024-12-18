@@ -1,0 +1,27 @@
+﻿@model RBPv1._1.Model.Groups
+
+<h2>Редактирование категории</h2>
+<form asp-action="edit" asp-controller="groups">
+    <input type="hidden" asp-for="GroupId" />
+
+    <p>
+        <label asp-for="GroupName">Название</label><br />
+        <input type="text" asp-for="GroupName" />
+    </p>
+    <p>
+        <label asp-for="Specialty">Специальность</label><br />
+        <input type="text" asp-for="Specialty" />
+    </p>
+    <p>
+        <label asp-for="Department">Факультет</label><br />
+        <input type="text" asp-for="Department" />
+    </p>
+    <p>
+        <label asp-for="StudentCount">Количество студентов</label><br />
+        <input type="number" asp-for="StudentCount" min="0" />
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>

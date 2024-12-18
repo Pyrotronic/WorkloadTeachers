@@ -1,0 +1,17 @@
+﻿@model IEnumerable<RBPv1._1.Model.Teachers>
+<h2>Удаление преподавателя</h2>
+<form asp-action="Delete" asp-controller="Teacher" method="post">
+    <select name="GroupId">
+        @foreach (var item in Model)
+        {
+            <option value="@item.TeacherID">@item.LastName @item.FirstName.Substring(0, 1).ToUpper(). @item.MiddleName.Substring(0, 1).ToUpper().</option>
+        }
+    </select>
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>
+
+
+

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Введите свои данные</title>
+</head>
+<body>
+    <h1>Введите имя и фамилию</h1>
+
+
+    <form method="post" action="/Home/DisplayGreeting">
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="firstName" required />
+        <br />
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="lastName" required />
+        <br />
+        <button type="submit">Отправить</button>
+    </form>
+
+
+    @if (!string.IsNullOrEmpty(ViewBag.Greeting))
+    {
+        <p style="color: green; font-weight: bold;">@ViewBag.Greeting</p>
+    }
+</body>
+</html>

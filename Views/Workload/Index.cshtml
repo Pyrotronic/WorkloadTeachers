@@ -1,0 +1,67 @@
+﻿@model IEnumerable<RBPv1._1.Model.Workload>
+
+
+<h2>Список нагрузки</h2>
+
+<tr>
+    <th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Create">
+            <button type="button" class="btn btn-primary">Добавить нагрузку</button>
+        </a>
+    </th>
+    <th style="text-align: center; vertical-align: middle;">
+        <a asp-action="Delete">
+            <button type="button" class="btn btn-danger">Удалить нагрузку</button>
+        </a>
+    </th>
+    <th style="text-align: center; vertical-align: middle;">
+        <form method="get" asp-action="Index" style="display: inline;">
+            <input type="text" name="searchQuery" value="@ViewData["SearchQuery"]" placeholder="Введите предмет" />
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </th>
+</tr>
+<table class="table">
+    <tr>
+        <th>
+            <a>
+                Группа
+            </a>
+        </th>
+        <th>
+            <a>
+                Преподаватель
+            </a>
+        </th>
+        <th>
+            <a>
+                Часы
+            </a>
+        </th>
+        <th>
+            Предмет
+        </th>
+        <th>
+            Тип пары
+        </th>
+        <th>
+            Оплата
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.groups.GroupName</td>
+            <td>@item.teachers.LastName @item.teachers.FirstName.Substring(0, 1).ToUpper(). @item.teachers.MiddleName.Substring(0, 1).ToUpper().</td>
+            <td>@item.Hours</td>
+            <td>@item.Subject</td>
+            <td>@item.ClassType</td>
+            <td>@item.Payment</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Workload" asp-route-id="@item.WorkloadID">
+                    <button type="submit" class="btn btn-outline-primary">Изменить</button>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<RBPv1._1.Model.Workload>
+<h2>Удаление накладной</h2>
+<form asp-action="Delete" asp-controller="Workload" method="post">
+    <select name="WorkloadID">
+        @foreach (var item in Model)
+        {
+            <option value="@item.Subject">@item.groups.GroupName (Преподаватель: @item.teachers.LastName @item.teachers.LastName.Substring(0, 1).ToUpper(). @item.teachers.LastName.Substring(0, 1).ToUpper().)</option>
+        }
+    </select>
+    <p>
+        <input type="submit" value="Удалить" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>

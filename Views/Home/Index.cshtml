@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple ASP.NET App</title>
+</head>
+<body>
+
+    
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p style="color: green; font-weight: bold;">@ViewBag.Message</p>
+    }
+
+    
+    <form method="post" action="/Home/ShowMessage">
+        <button type="submit">Нажми меня</button>
+    </form>
+</body>
+</html>

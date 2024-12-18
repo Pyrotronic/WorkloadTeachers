@@ -1,0 +1,40 @@
+﻿@model RBPv1._1.Model.Teachers
+
+<h2>Документы для преподавателя: @Model.LastName @Model.FirstName.Substring(0, 1).ToUpper(). @Model.MiddleName.Substring(0, 1).ToUpper().</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Word</th>
+            <th>Excel</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                
+                <a asp-action="GenerateReportsWord" asp-controller="Teacher" asp-route-teacherId="@Model.TeacherID">
+                    <button type="button" class="btn btn-outline-primary">Нагрузка Word</button>
+                </a>
+            </td>
+
+            <td>
+                <a asp-action="GenerateExcelReport" asp-controller="Teacher" asp-route-teacherId="@Model.TeacherID">
+                    <button type="button" class="btn btn-outline-success">Нагрузка Excel</button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <a asp-action="GenerateSimpleReportsWord" asp-controller="Teacher" asp-route-teacherId="@Model.TeacherID">
+                    <button type="button" class="btn btn-outline-primary">Отчёт об оплате</button>
+                </a>
+            </td>
+
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>

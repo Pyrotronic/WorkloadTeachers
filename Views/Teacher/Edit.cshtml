@@ -1,0 +1,31 @@
+﻿@model RBPv1._1.Model.Teachers
+
+<h2>Редактирование преподавателя</h2>
+<form asp-action="edit" asp-controller="Teacher">
+    <input type="hidden" asp-for="TeacherID" />
+
+    <p>
+        <label asp-for="LastName">Фамилия</label><br />
+        <input type="text" asp-for="LastName" />
+    </p>
+    <p>
+        <label asp-for="FirstName">Имя</label><br />
+        <input type="text" asp-for="FirstName" />
+    </p>
+    <p>
+        <label asp-for="MiddleName">Отчество</label><br />
+        <input type="text" asp-for="MiddleName" />
+    </p>
+    <p>
+        <label asp-for="Phone">Телефон</label><br />
+        <input type="text" asp-for="Phone"/>
+    </p>
+    <p>
+        <label asp-for="Experience">Опыт работы</label><br />
+        <input type="number" asp-for="Experience" min="0" />
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+    <a href="javascript:history.back()" class="btn btn-secondary">Назад</a>
+</form>
